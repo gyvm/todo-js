@@ -1,24 +1,17 @@
-import {ChildArea} from "./ChildArea";
-import {useCallback, useMemo, useState} from "react";
+import {InlineStyle} from './components/InlineStyle';
+import {CssModules} from "./components/CssModules";
+import {StyledJsx} from "./components/StyledJsx";
+import {StyledComponents} from "./components/StyledComponents";
+import {Emotion} from "./components/Emotion";
 
 export const App = () => {
-    const [text, setText] = useState('');
-    const [open, setOpen] = useState(false);
-    console.log('Appがレンダリングされた！！');
-
-    const onChangeText = (e) => setText(e.target.value);
-    const onClickOpen = () => setOpen(!open);
-    const onClickClose = useCallback(() => setOpen(false), [open]);
-    const temp = useMemo(() => 1 + 3, []);
-    console.log(temp);
-
-    return (
-        <div>
-            <input value={text} onChange={onChangeText}/>
-            <br/>
-            <br/>
-            <button onClick={onClickOpen}>表示</button>
-            <ChildArea open={open} onClickClose={onClickClose}/>
-        </div>
-    )
+  return (
+    <div className="App">
+        <InlineStyle />
+        <CssModules />
+        <StyledJsx />
+        <StyledComponents />
+        <Emotion />
+    </div>
+  );
 }
