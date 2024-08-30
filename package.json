@@ -13,7 +13,8 @@
     "styled-jsx-plugin-sass": "",
     "styled-components": "",
     "@emotion/react": "",
-    "@emotion/styled": ""
+    "@emotion/styled": "",
+    "react-router-dom": ""
   },
   "devDependencies": {
     "@types/react": "18.2.38",
