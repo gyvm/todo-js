@@ -1,12 +1,16 @@
 import styled from "styled-components";
+
 import {HeaderOnly} from "../templates/HeaderOnly";
 import {SearchInput} from "../molecules/SerchInput";
 import {UserCard} from "../organisma/user/UserCard";
+import {SecondaryButton} from "../atom/button/SecondaryButton";
+import {useContext} from "react";
+import {UserContext} from "../../providers/UserProvider";
 
 const users = [...Array(10).keys()].map(val => {
         return {
             id: val,
-            name: "未設定",
+            name: "未設定" + val,
             image: "https://picsum.photos/200",
             email: "test@example.com",
             phone: "000-0000-0000",
@@ -19,14 +23,21 @@ const users = [...Array(10).keys()].map(val => {
 )
 
 export const Users = () => {
+    const { userInfo, setUserInfo } = useContext(UserContext);
+    const onClickSwitch = () => setUserInfo({isAdmin: !userInfo.isAdmin});
+    console.log("Usersがレンダリングされました");
+    console.log(userInfo);
+
     return (
         <HeaderOnly>
             <SContainer>
                 <h2>Usersページです</h2>
                 <SearchInput />
+                <br/>
+                <SecondaryButton onClick={onClickSwitch}>切り替え</SecondaryButton>
                 <SUserArea>
-                    {users.map(user => (
-                        <UserCard key={user.id} user={user}/>
+                    {users.map(obj => (
+                        <UserCard key={obj.id} user={obj} />
                     ))}
                 </SUserArea>
             </SContainer>
