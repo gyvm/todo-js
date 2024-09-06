@@ -1,8 +1,6 @@
- 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 /** TypeScriptの基本の型 */
-
-// boolean
 const bool: boolean = true;
 
 // number 数値
